@@ -1,21 +1,32 @@
-import os
+import os 
+os.system("cls")
 from dataclasses import dataclass
 
+@dataclass 
+class Autor: 
+    nome: str 
+    biografia: str
+
 @dataclass
-class dados:
-        nome:str
-        email:str
-        telefone:float
-        endereço:str
+class livro:
+    titulo: str
+    ano: int
+    autor: Autor
 
-resultado=dados(nome=input("informe seu nome:"),email=input("informe o seu email:"),telefone=input("informe o seu telefone:"),endereço=input("informe o seu endereço:"))
+    def mostrar_resultado(self): 
+        print(f"Autor: {self.autor.nome}")
+        print(f"Biografia: {self.autor.biografia}")
+        print(f"Livro: {self.titulo}")
+        print(f"Data de publicação: {self.ano}")
 
+pessoa= livro(titulo=input("Digite o titulo do livro: "),
+              ano=int(input("Digite o seu ano de lançamento: ")),
+              autor=Autor(nome=input("Digite o nome do autor: "),
+                          biografia=input("Digite a biografia: ")))
 
-print("=exibindo dados=")
-print(f"nome:{resultado.nome}")
-print(f"email:{resultado.email}")
-print(f"telefone:{resultado.telefone}")
-print(f"endereço:{resultado.endereço}")
+os.system("cls")
+print("\n===MOSTRAR DETALHES DO LIVRO===")
+pessoa.mostrar_resultado()
 
 
 
